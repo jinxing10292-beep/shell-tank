@@ -28,17 +28,19 @@
 
         <div class="hud-right">
           <div class="turn-indicator">
-            <div class="turn-badge red">1</div>
-            <div class="turn-badge blue">0</div>
+            <div class="turn-badge red" id="turnLabel">1</div>
+            <div class="turn-badge blue" id="enemyTurnLabel">0</div>
           </div>
           <div class="shots-indicator">
             <span class="label">SHOTS LEFT</span>
-            <span class="value">50</span>
+            <span class="value" id="shotsLeftValue">50</span>
           </div>
         </div>
       </header>
 
-      <main class="battlefield">
+      <main class="battlefield" id="battlefield">
+        <div class="battle-status" id="battleStatus">Player turn</div>
+
         <div class="weapon-overlay hidden" id="weaponOverlay">
           <div class="weapon-box">
             <h2>Choose a Weapon!</h2>
@@ -53,11 +55,17 @@
           <div class="tank-body">
             <div class="barrel"></div>
           </div>
+          <div class="tank-health">
+            <span class="hp-fill" id="playerHpFill"></span>
+          </div>
         </div>
 
-        <div class="tank tank-enemy" aria-label="Enemy tank">
+        <div class="tank tank-enemy" id="enemyTank" aria-label="Enemy tank">
           <div class="tank-body">
             <div class="barrel"></div>
+          </div>
+          <div class="tank-health enemy-health">
+            <span class="hp-fill" id="enemyHpFill"></span>
           </div>
         </div>
 
@@ -85,10 +93,20 @@
         </div>
       </main>
 
+      <div class="power-hud">
+        <div class="power-header">
+          <span>POWER</span>
+          <strong id="powerValue">40%</strong>
+        </div>
+        <div class="power-bar">
+          <span id="powerFill"></span>
+        </div>
+      </div>
+
       <footer class="bottom-panel">
         <div class="status-card armor-card">
           <div class="label-row">
-            <span class="name">0 / 50 Armor</span>
+            <span class="name">0 / 100 Armor</span>
             <span class="value">779</span>
           </div>
           <div class="dial-shell">
@@ -108,8 +126,8 @@
           <h3>ITEMS</h3>
           <div class="item-row">
             <div class="item-slot">
-              <span class="item-name">Shot</span>
-              <span class="item-count">10</span>
+              <span class="item-name" id="selectedWeaponName">Breaker</span>
+              <span class="item-count" id="selectedWeaponCount">10</span>
             </div>
           </div>
         </div>
