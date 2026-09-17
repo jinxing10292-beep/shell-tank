@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Shell Tank</title>
+    <meta
+      name="description"
+      content="Mobile tank battle prototype built with HTML, CSS, and JavaScript."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <header class="top-bar">
+        <div class="hud-left">
+          <div class="tutorial-tag">
+            <span class="tag-icon">◉</span>
+            <span>Tutorial</span>
+          </div>
+        </div>
+
+        <div class="hud-right">
+          <div class="turn-indicator">
+            <div class="turn-badge red">1</div>
+            <div class="turn-badge blue">0</div>
+          </div>
+          <div class="shots-indicator">
+            <span class="label">SHOTS LEFT</span>
+            <span class="value">50</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="battlefield">
+        <div class="weapon-overlay hidden" id="weaponOverlay">
+          <div class="weapon-box">
+            <h2>Choose a Weapon!</h2>
+          </div>
+        </div>
+
+        <div class="terrain terrain-back"></div>
+        <div class="terrain terrain-front"></div>
+
+        <div class="tank tank-player" id="playerTank" aria-label="Player tank">
+          <div class="tank-label">uzuhama</div>
+          <div class="tank-body">
+            <div class="barrel"></div>
+          </div>
+        </div>
+
+        <div class="tank tank-enemy" aria-label="Enemy tank">
+          <div class="tank-body">
+            <div class="barrel"></div>
+          </div>
+        </div>
+
+        <div class="weapon-strip" id="weaponStrip">
+          <button class="weapon-card active" data-weapon="Breaker" type="button">
+            <span class="weapon-name">Breaker</span>
+            <span class="weapon-power">10</span>
+          </button>
+          <button class="weapon-card" data-weapon="RapidFire" type="button">
+            <span class="weapon-name">RapidFire</span>
+            <span class="weapon-power">10</span>
+          </button>
+          <button class="weapon-card" data-weapon="Shot" type="button">
+            <span class="weapon-name">Shot</span>
+            <span class="weapon-power">10</span>
+          </button>
+          <button class="weapon-card" data-weapon="Sinkhole" type="button">
+            <span class="weapon-name">Sinkhole</span>
+            <span class="weapon-power">10</span>
+          </button>
+          <button class="weapon-card" data-weapon="Splitter" type="button">
+            <span class="weapon-name">Splitter</span>
+            <span class="weapon-power">10</span>
+          </button>
+        </div>
+      </main>
+
+      <footer class="bottom-panel">
+        <div class="status-card armor-card">
+          <div class="label-row">
+            <span class="name">0 / 50 Armor</span>
+            <span class="value">779</span>
+          </div>
+          <div class="dial-shell">
+            <div class="dial-ring">
+              <div class="dial-inner">
+                <div class="dial-arrow"></div>
+              </div>
+            </div>
+          </div>
+          <div class="status-foot">
+            <span class="icon">◉</span>
+            <span>+0 XP</span>
+          </div>
+        </div>
+
+        <div class="items-card">
+          <h3>ITEMS</h3>
+          <div class="item-row">
+            <div class="item-slot">
+              <span class="item-name">Shot</span>
+              <span class="item-count">10</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-card">
+          <h4>PRESS ENTER TO CHAT</h4>
+          <div class="mission-box">
+            <span class="mission-title">MISSION</span>
+            <span class="mission-text">DESTROY ENEMY TANKS AND TARGETS</span>
+          </div>
+        </div>
+
+        <div class="battle-logs">
+          <div class="log-pill">LEAVE</div>
+        </div>
+      </footer>
+
+      <div class="touch-controls">
+        <button class="move-btn" data-direction="left" type="button">◀</button>
+        <button class="move-btn" data-direction="right" type="button">▶</button>
+        <button class="fire-btn" id="fireBtn" type="button">FIRE</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
